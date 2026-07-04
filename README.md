@@ -117,3 +117,61 @@ Team Members
 License
 
 This project was developed for the Odoo Hackathon and is intended for educational purposes.
+
+TESTING
+
+Test Case ID
+
+Feature
+
+Test Steps
+
+Expected Result
+
+Actual Result
+
+Status
+
+TC-01
+
+Sign Up
+
+Test Steps: Go To Sign Up page Enter valid Employee ID, Email, Password,Role Then Click on sign up
+
+User account is created successfully.
+
+Account created successfully.
+
+Pass
+
+TC-02
+
+Login
+
+Type in the valid Email and Passwordand press Login
+
+The user is navigated to the dashboard.
+
+Dashboard opened successfully.
+
+Pass
+
+TC-03
+
+Invalid Login
+
+In the box, Enter a wrong Email or Password and click on Login.
+
+Error message is displayed.
+
+Error message displayed correctly.
+
+Pass
+
+TC-04
+
+Employee Dashboard
+
+Log in as an Employee.
+
+Dashboard Profile Attendance Leave Logout
