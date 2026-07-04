@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll Management</title>
+    <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation (Same as other pages) -->
+        <nav class="sidebar">
+            <h2>HR System</h2>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="employees.html">Employees</a></li>
+                <li><a href="attendance.html">Attendance</a></li>
+                <li><a href="leave-requests.html">Leave Requests</a></li>
+                <li><a href="departments.html">Departments</a></li>
+                <li><a href="payroll.html" class="active">Payroll</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <header>
+                <h1>Payroll Management</h1>
+            </header>
+            
+            <section class="payroll-table">
+                <h3>Employee Salary Overview</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Name</th>
+                            <th>Base Salary</th>
+                            <th>Allowances</th>
+                            <th>Net Pay</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101</td>
+                            <td>John Doe</td>
+                            <td>$5000</td>
+                            <td>$500</td>
+                            <td>$5500</td>
+                            <td>Paid</td>
+                        </tr>
+                        <tr>
+                            <td>102</td>
+                            <td>Jane Smith</td>
+                            <td>$6000</td>
+                            <td>$600</td>
+                            <td>$6600</td>
+                            <td>Pending</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
