@@ -2,126 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HRMS - Employee List</title>
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Specific styling for the data table */
-        .table-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-        .table-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .add-btn {
-            background-color: #3b82f6;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 500;
-        }
-        .add-btn:hover { background-color: #2563eb; }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-        th, td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        th {
-            background-color: #f8fafc;
-            color: #64748b;
-            font-weight: 600;
-        }
-        tr:hover { background-color: #f8fafc; }
-        .status-badge {
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        .status-badge.active { background-color: #d1fae5; color: #065f46; }
-        .status-badge.leave { background-color: #fef3c7; color: #92400e; }
-    </style>
+    <title>Employee Profile</title>
+    <link rel="stylesheet" href="employees.css">
 </head>
 <body>
-    <div class="dashboard-container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <h2>HRMS Portal</h2>
-            <nav>
-                <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
-                <a href="employees.html" class="active"><i class="fas fa-users"></i> Employees</a>
-                <a href="#"><i class="fas fa-calendar-check"></i> Attendance</a>
-                <a href="leave-requests.html"><i class="fas fa-envelope-open-text"></i> Leave Requests</a>
-                <a href="departments.html"><i class="fas fa-sitemap"></i> Departments</a>
-                <a href="#"><i class="fas fa-file-invoice-dollar"></i> Payroll</a>
-            </nav>
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <header>
-                <h1>Employee Directory</h1>
-                <div class="user-profile">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-            </header>
-
-            <!-- Table Container -->
-            <div class="table-container">
-                <div class="table-header">
-                    <h3>All Staff Members</h3>
-                    <button class="add-btn"><i class="fas fa-user-plus"></i> Add Employee</button>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Department</th>
-                            <th>Role</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>#EMP-001</td>
-                            <td>John Doe</td>
-                            <td>Engineering</td>
-                            <td>Frontend Developer</td>
-                            <td><span class="status-badge active">Active</span></td>
-                        </tr>
-                        <tr>
-                            <td>#EMP-002</td>
-                            <td>Jane Smith</td>
-                            <td>Human Resources</td>
-                            <td>HR Manager</td>
-                            <td><span class="status-badge active">Active</span></td>
-                        </tr>
-                        <tr>
-                            <td>#EMP-003</td>
-                            <td>Alex Johnson</td>
-                            <td>Design</td>
-                            <td>UI/UX Designer</td>
-                            <td><span class="status-badge leave">On Leave</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="container">
+        <a href="dashboard.html">← Back to Dashboard</a>
+        
+        <div class="profile-header">
+            <img id="pfp" src="" alt="Profile Picture">
+            <div>
+                <h2 id="emp-name">Loading...</h2>
+                <input type="file" id="pfp-upload" onchange="updatePFP(event)" style="width: auto;">
             </div>
-        </main>
+        </div>
+
+        <div class="data-grid">
+            <div class="form-group"><label>Address:</label><input type="text" id="address"></div>
+            <div class="form-group"><label>Phone:</label><input type="text" id="phone"></div>
+            <div class="form-group"><label>Job Title:</label><input type="text" id="job" disabled></div>
+            <div class="form-group"><label>Salary:</label><input type="text" id="salary" disabled></div>
+        </div>
+
+        <div class="documents-section">
+            <h3>Documents</h3>
+            <ul class="doc-list" id="doc-list">
+                <li>Contract.pdf <button>View</button></li>
+            </ul>
+            <input type="file" id="doc-input">
+            <button onclick="uploadDoc()">Upload New Document</button>
+        </div>
+
+        <button onclick="saveProfile()">Save Changes</button>
+        <button onclick="toggleAdmin()">Toggle Admin Mode</button>
     </div>
+
+    <script>
+        const employees = {
+            "aarav": { name: "Aarav Sharma", address: "Kolkata", phone: "9876543210", job: "Software Engineer", salary: "$50,000" },
+            "priya": { name: "Priya Singh", address: "Mumbai", phone: "9123456789", job: "Project Manager", salary: "$65,000" }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const empId = params.get('id') || 'aarav';
+        const emp = employees[empId];
+
+        document.getElementById('emp-name').innerText = emp.name;
+        document.getElementById('address').value = emp.address;
+        document.getElementById('phone').value = emp.phone;
+        document.getElementById('job').value = emp.job;
+        document.getElementById('salary').value = emp.salary;
+
+        function updatePFP(event) {
+            const reader = new FileReader();
+            reader.onload = () => document.getElementById('pfp').src = reader.result;
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function toggleAdmin() {
+            const job = document.getElementById('job');
+            const salary = document.getElementById('salary');
+            job.disabled = !job.disabled;
+            salary.disabled = !salary.disabled;
+        }
+
+        function uploadDoc() {
+            const file = document.getElementById('doc-input').files[0];
+            if (file) {
+                const li = document.createElement('li');
+                li.innerHTML = `${file.name} <button>View</button>`;
+                document.getElementById('doc-list').appendChild(li);
+            }
+        }
+
+        function saveProfile() { alert("Changes saved successfully!"); }
+    </script>
 </body>
 </html>
