@@ -2,19 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance Management</title>
+    <title>Attendance Tracker</title>
     <link rel="stylesheet" href="attendance.css">
 </head>
 <body>
-    <div class="attendance-card">
-        <h2>Attendance Management</h2>
-        <div class="status-buttons">
-            <button class="btn">Check-In</button>
-            <button class="btn">Check-Out</button>
+    <div class="container">
+        <a href="dashboard.html">← Back to Dashboard</a>
+        <h1>Attendance Tracker</h1>
+        
+        <!-- This container is updated dynamically to show/hide buttons -->
+        <div id="controls-container" class="check-box"></div>
+
+        <div style="margin-top: 15px;">
+            <select id="view-type" onchange="renderTable()">
+                <option value="daily">Daily View</option>
+                <option value="weekly">Weekly View</option>
+            </select>
         </div>
-        <br>
-        <a href="dashboard.html" class="back-link">Back to Dashboard</a>
+
+        <table id="attendance-table">
+            <thead>
+                <tr><th>ID</th><th>Name</th><th>Date</th><th>Status</th></tr>
+            </thead>
+            <tbody id="attendance-body"></tbody>
+        </table>
     </div>
+
+    <script>
+        let isAdmin = false;
+        const currentUserId = "EMP-001"; 
+        
+        // 124 Real Human Names
+        const firstNames = ["Aarav", "Priya", "Rohan", "Sanya", "Vikram", "Anjali", "Kabir", "Meera", "Arjun", "Ishita", "Neil", "Zara", "Dev", "Kavya", "Aryan", "Diya", "Riya", "Vivaan", "Myra", "Advik", "Kiara", "Reyansh", "Anika", "Sai", "Inaya"];
+        const lastNames = ["Sharma", "Singh", "Patel", "Gupta", "Reddy", "Das", "Iyer", "Joshi", "Bose", "Mehta"];
+        
+        const employees = Array.from({length: 124}, (_, i) => {
+            const name = `${firstNames[i % firstNames.length]} ${lastNames[i % lastNames.length]}`;
+            return {
+                id: `EMP-${(i + 1).toString().padStart(3, '0')}`,
+                name: name,
+                dailyStatus: ["Present", "Present", "Absent", "Half-day", "Leave"][Math.floor(Math.random() * 5)],
+                weeklyStatus: ["Present", "Present", "Absent", "Half-day", "Leave"][Math.floor(Math.random() * 5)]
+            };
+        });
+
+        function renderTable() {
+            const body = document.getElementById('attendance-body');
+            const view = document.getElementById('view-type').value;
+            const container = document.getElementById('controls-container');
+            body.innerHTML = '';
+            
+            // Fix: Explicitly rebuild the button area
+            if (isAdmin) {
+                container.innerHTML = `<button onclick="toggleAdmin()">Switch to Employee View</button>`;
+            } else {
+                container.innerHTML = `
+                    <button onclick="markAttendance('Check-in')">Check-in</button>
+                    <button onclick="markAttendance('Check-out')">Check-out</button>
+                    <button onclick="toggleAdmin()">Switch to Admin View</button>
+                `;
+            }
+            
+            let filtered = isAdmin ? employees : employees.filter(e => e.id === currentUserId);
+            
+            filtered.forEach(e => {
+                let status = (view === 'daily') ? e.dailyStatus : e.weeklyStatus;
+                const statusClass = status.toLowerCase().replace(' ', '-');
+                body.innerHTML += `<tr>
+                    <td>${e.id}</td>
+                    <td>${e.name}</td>
+                    <td>${view === 'daily' ? '2026-07-04' : '2026-06-28 to 2026-07-04'}</td>
+                    <td><span class="status-pill ${statusClass}">${status}</span></td>
+                </tr>`;
+            });
+        }
+
+        function toggleAdmin() {
+            isAdmin = !isAdmin;
+            renderTable();
+        }
+
+        function markAttendance(type) { alert(type + " recorded!"); }
+        renderTable();
+    </script>
 </body>
 </html>

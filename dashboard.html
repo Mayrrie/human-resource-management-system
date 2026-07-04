@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HRMS Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
-    <!-- FontAwesome for clean dashboard icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <h1>HRMS Dashboard</h1>
+    
+    <div class="controls">
+        <button onclick="toggleRole()">Switch View (Employee / Admin)</button>
     <div class="dashboard-container">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
@@ -65,5 +66,35 @@
             </section>
         </main>
     </div>
+
+    <!-- 3.2.1 Employee Dashboard -->
+    <div class="grid" id="user-view">
+        <div class="card"><h3>Profile</h3><a href="employees.html">View & Edit</a></div>
+        <div class="card"><h3>Attendance</h3><a href="attendance.html">View Records</a></div>
+        <div class="card"><h3>Leave Requests</h3><button>Apply Now</button></div>
+        <div class="card"><h3>Logout</h3><a href="#">Exit System</a></div>
+    </div>
+
+    <!-- 3.2.2 Admin / HR Dashboard -->
+    <div class="grid admin-only" id="admin-view">
+        <div class="card"><h3>Employee List</h3><a href="employees.html">Manage All</a></div>
+        <div class="card"><h3>Attendance Records</h3><a href="attendance.html">View/Approve</a></div>
+        <div class="card"><h3>Leave Approvals</h3><button>Review Requests</button></div>
+    </div>
+
+    <script>
+        function toggleRole() {
+            const user = document.getElementById('user-view');
+            const admin = document.getElementById('admin-view');
+            
+            if (user.style.display === 'none') {
+                user.style.display = 'grid';
+                admin.style.display = 'none';
+            } else {
+                user.style.display = 'none';
+                admin.style.display = 'grid';
+            }
+        }
+    </script>
 </body>
 </html>
