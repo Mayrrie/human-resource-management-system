@@ -10,6 +10,61 @@
     
     <div class="controls">
         <button onclick="toggleRole()">Switch View (Employee / Admin)</button>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h2>HRMS Portal</h2>
+            <nav>
+                <a href="dashboard.html" class="active"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="employees.html"><i class="fas fa-users"></i> Employees</a>
+                <a href="attendance.html"><i class="fas fa-calendar-check"></i> Attendance</a>
+                <a href="leave-requests.html"><i class="fas fa-envelope-open-text"></i> Leave Requests</a>
+                <a href="departments.html"><i class="fas fa-sitemap"></i> Departments</a>
+                <a href="payroll.html"><i class="fas fa-file-invoice-dollar"></i> Payroll</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header>
+                <h1>Welcome Back, Admin</h1>
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </header>
+
+            <!-- Metrics Grid Cards -->
+            <section class="cards-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <div class="card-info">
+                        <h3>Total Employees</h3>
+                        <p class="number">124</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-user-check"></i></div>
+                    <div class="card-info">
+                        <h3>Present Today</h3>
+                        <p class="number">98</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-calendar-times"></i></div>
+                    <div class="card-info">
+                        <h3>Leave Requests</h3>
+                        <p class="number">7</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-sitemap"></i></div>
+                    <div class="card-info">
+                        <h3>Departments</h3>
+                        <p class="number">6</p>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
     <!-- 3.2.1 Employee Dashboard -->

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="employees.css">
 </head>
 <body>
+<<<<<<< HEAD
     <div class="container">
         <a href="dashboard.html">← Back to Dashboard</a>
         
@@ -14,6 +15,69 @@
             <div>
                 <h2 id="emp-name">Loading...</h2>
                 <input type="file" id="pfp-upload" onchange="updatePFP(event)" style="width: auto;">
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h2>HRMS Portal</h2>
+            <nav>
+                <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="employees.html" class="active"><i class="fas fa-users"></i> Employees</a>
+                <a href="attendance.html"><i class="fas fa-calendar-check"></i> Attendance</a>
+                <a href="leave-requests.html"><i class="fas fa-envelope-open-text"></i> Leave Requests</a>
+                <a href="departments.html"><i class="fas fa-sitemap"></i> Departments</a>
+                <a href="payroll.html"><i class="fas fa-file-invoice-dollar"></i> Payroll</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header>
+                <h1>Employee Directory</h1>
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </header>
+
+            <!-- Table Container -->
+            <div class="table-container">
+                <div class="table-header">
+                    <h3>All Staff Members</h3>
+                    <button class="add-btn"><i class="fas fa-user-plus"></i> Add Employee</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#EMP-001</td>
+                            <td>John Doe</td>
+                            <td>Engineering</td>
+                            <td>Frontend Developer</td>
+                            <td><span class="status-badge active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>#EMP-002</td>
+                            <td>Jane Smith</td>
+                            <td>Human Resources</td>
+                            <td>HR Manager</td>
+                            <td><span class="status-badge active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>#EMP-003</td>
+                            <td>Alex Johnson</td>
+                            <td>Design</td>
+                            <td>UI/UX Designer</td>
+                            <td><span class="status-badge leave">On Leave</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
