@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRMS - Departments</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h2>HRMS Portal</h2>
+            <nav>
+                <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="employees.html"><i class="fas fa-users"></i> Employees</a>
+                <a href="#"><i class="fas fa-calendar-check"></i> Attendance</a>
+                <a href="leave-requests.html"><i class="fas fa-envelope-open-text"></i> Leave Requests</a>
+                <a href="departments.html" class="active"><i class="fas fa-sitemap"></i> Departments</a>
+                <a href="#"><i class="fas fa-file-invoice-dollar"></i> Payroll</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Departments Overview</h1>
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </header>
+
+            <section class="content-body" style="padding: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 24px;">
+                
+                <div style="background: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid #4a90e2;">
+                    <h3 style="color: #333; margin-bottom: 8px;"><i class="fas fa-code" style="color: #4a90e2; margin-right: 8px;"></i>Engineering</h3>
+                    <p style="color: #666; font-size: 14px;">Total Core Members: <strong>12</strong></p>
+                </div>
+
+                <div style="background: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid #2ecc71;">
+                    <h3 style="color: #333; margin-bottom: 8px;"><i class="fas fa-heart-open" style="color: #2ecc71; margin-right: 8px;"></i>Human Resources</h3>
+                    <p style="color: #666; font-size: 14px;">Total Core Members: <strong>4</strong></p>
+                </div>
+
+                <div style="background: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid #e67e22;">
+                    <h3 style="color: #333; margin-bottom: 8px;"><i class="fas fa-ad" style="color: #e67e22; margin-right: 8px;"></i>Marketing</h3>
+                    <p style="color: #666; font-size: 14px;">Total Core Members: <strong>8</strong></p>
+                </div>
+
+            </section>
+        </main>
+    </div>
+</body>
+</html>
