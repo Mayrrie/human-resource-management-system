@@ -120,58 +120,168 @@ This project was developed for the Odoo Hackathon and is intended for educationa
 
 TESTING
 
-Test Case ID
+Test Case ID: TC-01
 
-Feature
+Feature: Sign Up
 
-Test Steps
+Just open the Sign Up page, fill in a valid Employee ID, Email, Password, pick a Role, then hit Sign Up.
 
-Expected Result
+You get a message that your account’s been created.
 
-Actual Result
+Actual Result: Account created successfully.
 
-Status
+Status: Pass
 
-TC-01
+---
 
-Sign Up
+Test Case ID: TC-02
 
-Test Steps: Go To Sign Up page Enter valid Employee ID, Email, Password,Role Then Click on sign up
+Feature: Login
 
-User account is created successfully.
+Type in a valid Email and Password, then click Login.
 
-Account created successfully.
+You land right on the dashboard.
 
-Pass
+Actual Result: Dashboard opened successfully.
 
-TC-02
+Status: Pass
 
-Login
+---
 
-Type in the valid Email and Passwordand press Login
+Test Case ID: TC-03
 
-The user is navigated to the dashboard.
+Feature: Invalid Login
 
-Dashboard opened successfully.
+Enter the wrong Email or Password, then click Login.
 
-Pass
+You’ll see an error message pop up.
 
-TC-03
+Actual Result: Error message showed up as expected.
 
-Invalid Login
+Status: Pass
 
-In the box, Enter a wrong Email or Password and click on Login.
+---
 
-Error message is displayed.
+Test Case ID: TC-04
 
-Error message displayed correctly.
+Feature: Employee Dashboard
 
-Pass
+Sign in as an Employee.
 
-TC-04
+The dashboard gives you options for Profile, Attendance, Leave, and Logout.
 
-Employee Dashboard
+Actual Result: All those options showed up.
 
-Log in as an Employee.
+Status: Pass
 
-Dashboard Profile Attendance Leave Logout
+---
+
+Test Case ID: TC-05
+
+Feature: Admin Dashboard
+
+Sign in as an Admin.
+
+You’ll see Employee List, Attendance Records, Leave Approvals, and Payroll on your dashboard.
+
+Actual Result: Dashboard displayed everything needed.
+
+Status: Pass
+
+---
+
+Test Case ID: TC-06
+
+Feature: View Profile
+
+Go to the Profile page.
+
+Employee details show up correctly.
+
+Actual Result: Details all there.
+
+Status: Pass
+
+---
+
+Test Case ID: TC-07
+
+Feature: Edit Profile
+
+Change something like your address or phone and save.
+
+Your updates stick.
+
+Actual Result: Profile updated.
+
+Status: Pass
+
+---
+
+Test Case ID: TC-08
+
+Feature: Attendance
+
+Head over to the Attendance page.
+
+You can see daily and weekly attendance.
+
+Actual Result: Attendance info matched.
+
+Status: Pass
+
+---
+
+Test Case ID: TC-09
+
+Feature: Apply Leave
+
+Pick a leave type, set the dates, write any remarks, and submit.
+
+Your leave request shows up as Pending.
+
+Actual Result: Request submitted.
+
+Status: Pass
+
+---
+
+Test Case ID: TC-10
+
+Feature: Leave Approval
+
+Login as Admin and either approve or reject a leave request.
+
+The leave status updates to Approved or Rejected.
+
+Actual Result: Status reflected the change.
+
+Status: Pass
+
+---
+
+Test Case ID: TC-11
+
+Feature: Payroll
+
+Open the Payroll page.
+
+Salary details are easy to see.
+
+Actual Result: Payroll info displayed.
+
+Status: Pass
+
+---
+
+Test Case ID: TC-12
+
+Feature: Logout
+
+Click on Logout.
+
+You’re sent back to the Login page.
+
+Actual Result: Logout worked.
+
+Status: Pass
